@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    @model List<Vaga>
+
+}
+
+<form asp-controller="Vaga" asp-action="Index">
+    <p>
+        Title: <input type="text" name="SearchString" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
+<div class="row">
+
+            @foreach (var vaga in Model)
+            {
+            <div class="col-sm-6">
+                <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">@vaga.titulo | @vaga.empresa</h5>
+                    <p class="card-text">@vaga.salario</p>
+                    <p class="card-text">@vaga.descricao_vaga</p>
+                    <a href="@vaga.url" class="btn btn-primary">Ir para Link</a>
+                </div>
+                </div>
+            </div>
+                <br>
+            }
+
+</div>
